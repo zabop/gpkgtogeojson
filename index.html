@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+</head>
+<body>
+    <h2>Upload a File</h2>
+    <input type="file" id="fileInput">
+    <button onclick="uploadFile()">Upload</button>
+
+    <div id="response"></div>
+
+    <script>
+        function uploadFile() {
+            var fileInput = document.getElementById('fileInput');
+            var file = fileInput.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function(event) {
+                fileContent = event.target.result.split(',')[1];
+                sendRequest(fileContent);
+            };
+
+            reader.readAsDataURL(file);
+        }
+
+        function sendRequest(fileContent) {
+            var xhr = new XMLHttpRequest();
+            var url = 'https://learnflyio-white-dawn-2438.fly.dev/gpkg'; // prod
+            //var url = 'http://127.0.0.1:8000/gpkg'; // local testing
+            var data = JSON.stringify({
+                name: "Example Item",
+                base64src: fileContent
+            });
+            console.log("fileContent:")
+            console.log(fileContent)
+            console.log("fileContent^")
+
+            xhr.open('POST', url, true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    handleResponse(xhr.responseText);
+                }
+            };
+
+            xhr.send(data);
+        }
+
+        function handleResponse(response) {
+            var responseDiv = document.getElementById('response');
+            responseDiv.innerHTML = '<pre>' + response + '</pre>';
+        }
+    </script>
+</body>
+</html>
+

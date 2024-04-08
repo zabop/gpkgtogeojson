@@ -1,0 +1,6 @@
+fastapi
+fastapi-cors
+uvicorn
+numpy
+geopandas
+pyogrio

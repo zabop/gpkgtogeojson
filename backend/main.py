@@ -8,7 +8,13 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-origins = ["https://www.gpkgtogeojson.com","https://gpkgtogeojson.com","https://www.gpkgtogeojson.com/gpkg","https://gpkgtogeojson.com/gpkg"]
+origins = [
+    "https://www.gpkgtogeojson.com",
+    "https://gpkgtogeojson.com",
+    "https://www.gpkgtogeojson.com/gpkg",
+    "https://gpkgtogeojson.com/gpkg",
+    "https://gpkgtogeojson-frontend.fly.dev",
+]
 
 app.add_middleware(
     CORSMiddleware,
@@ -18,6 +24,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 class GPKG(BaseModel):
     name: str
     base64src: str
@@ -25,14 +32,14 @@ class GPKG(BaseModel):
 
 @app.post("/gpkg")
 async def create_item(gpkg: GPKG):
-
     decoded_bytes = base64.b64decode(gpkg.base64src)
     with open("src.gpkg", "wb") as f:
         f.write(decoded_bytes)
 
-    gpd.read_file("src.gpkg").to_file("dst.geojson",driver="GeoJSON",engine="pyogrio")
+    gpd.read_file("src.gpkg").to_file("dst.geojson", driver="GeoJSON", engine="pyogrio")
 
     return FileResponse("dst.geojson")
+
 
 @app.get("/")
 async def read_root():

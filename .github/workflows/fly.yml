@@ -16,14 +16,13 @@ jobs:
         run: ls -l
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-
-      - name: "Deploy backend"
-        working-directory: backend
+      - name: "Deploy frontend"
+        working-directory: frontend
         run: flyctl deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-      - name: "Deploy frontend"
-        working-directory: frontend
+      - name: "Deploy backend"
+        working-directory: backend
         run: flyctl deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}

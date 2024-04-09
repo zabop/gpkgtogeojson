@@ -28,8 +28,8 @@
 
         function sendRequest(fileContent) {
             var xhr = new XMLHttpRequest();
-            var url = 'https://learnflyio-white-dawn-2438.fly.dev/gpkg'; // prod
-            //var url = 'http://127.0.0.1:8000/gpkg'; // local testing
+            //var url = 'https://gpkgtogeojson-morning-frog-8425.fly.dev/gpkg'; // prod
+            var url = 'http://127.0.0.1:8000/gpkg'; // local testing
             var data = JSON.stringify({
                 name: "Example Item",
                 base64src: fileContent

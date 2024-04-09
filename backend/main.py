@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-origins = ["https://gpkgtogeojson-frontend.fly.dev"]
+origins = ["https://www.gpkgtogeojson.com/","https://gpkgtogeojson.com/"]
 
 app.add_middleware(
     CORSMiddleware,

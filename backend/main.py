@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-origins = ["https://www.gpkgtogeojson.com","https://gpkgtogeojson.com"]
+origins = ["https://www.gpkgtogeojson.com","https://gpkgtogeojson.com","https://www.gpkgtogeojson.com/gpkg","https://gpkgtogeojson.com/gpkg"]
 
 app.add_middleware(
     CORSMiddleware,

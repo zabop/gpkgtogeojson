@@ -11,6 +11,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: superfly/flyctl-actions/setup-flyctl@master
+      - name: "Debug"
+        working-directory: backend
+        run: ls -l
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+
       - name: "Deploy backend"
         working-directory: backend
         run: flyctl deploy --remote-only

@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "gpkgtogeojson"
+version = "0.1.0"
+description = ""
+authors = ["zabop <zabop@protonmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+geopandas = "^0.14.3"
+numpy = "^1.26.4"
+fastapi = "^0.110.1"
+uvicorn = "^0.29.0"
+pyogrio = "^0.7.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

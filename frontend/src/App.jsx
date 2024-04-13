@@ -64,6 +64,9 @@ const App = () => {
 
   return (
     <div className="App">
+      <div className="title">
+      <h1>Free GPKG to GeoJSON converter</h1>  
+      </div>
       <button
         id="gpkg-file-button"
         onClick={handleClick}
@@ -77,6 +80,10 @@ const App = () => {
         style={{ display: 'none' }}
         onChange={handleFileChange}
       />
+      <div className="footer">
+        <p>You can upload a GPKG file and get back back a GeoJSON file. (If you upload a large file, it might take a while.)</p>
+        <p>Suggestions, problems? gpkgtogeojson@protonmail.com</p>
+      </div>
     </div>
   );
 };

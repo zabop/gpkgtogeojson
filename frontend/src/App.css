@@ -1,10 +1,30 @@
 #gpkg-file-button {
-  padding: 30px 250px; /* Increase padding for a larger button */
-  font-size: 60px; /* Increase font size for better readability */
-  position: fixed;
-  top: 50%;
+  padding: 40px 400px; /* Increase padding for a larger button */
+  font-size: 6rem; /* Increase font size for better readability */
+  position: absolute;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%); 
+}
+
+.title {
+  position: absolute;
+  top: 0;
+  background-color: #3498db;
+  width: 100%;
+  font-size: 1rem;
+  text-align: center;
+  color: white
+}
+
+.footer {
+  position: absolute;
+  top: 55%;
+  background-color: #3498db;
+  width: 100%;
+  font-size: 2rem;
+  text-align: center;
+  color: white
 }
 
 .colored-button {

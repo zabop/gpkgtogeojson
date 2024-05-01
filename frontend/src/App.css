@@ -12,6 +12,8 @@
   cursor: pointer;
   transition: border-color 0.25s;
   white-space: nowrap;
+  background-color: #3498db;
+  color: #fff;
 }
 
 .title {
@@ -32,11 +34,6 @@
   font-size: 2rem;
   text-align: center;
   color: white
-}
-
-.colored-button {
-  background-color: #3498db; /* Blue background */
-  color: #fff; /* White text */
 }
 
 :root {

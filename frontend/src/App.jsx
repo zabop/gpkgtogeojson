@@ -71,11 +71,7 @@ const App = () => {
       <div className="title">
         <h1>Free GPKG to GeoJSON converter</h1>
       </div>
-      <button
-        id="gpkg-file-button"
-        onClick={handleClick}
-        className="colored-button"
-      >
+      <button id="gpkg-file-button" onClick={handleClick}>
         {buttonText}
       </button>
       <input

@@ -1,10 +1,17 @@
 #gpkg-file-button {
-  padding: 40px 400px; /* Increase padding for a larger button */
+  padding: 40px 200px; /* Increase padding for a larger button */
   font-size: 6rem; /* Increase font size for better readability */
   position: absolute;
   top: 35%;
   left: 50%;
   transform: translate(-50%, -50%); 
+  border-radius: 80px;
+  border: 1px solid transparent;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  white-space: nowrap;
 }
 
 .title {
@@ -54,18 +61,6 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
 }
 
 @media (prefers-color-scheme: light) {

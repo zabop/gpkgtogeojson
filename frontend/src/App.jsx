@@ -36,7 +36,8 @@ const App = () => {
   const sendFileToServer = async (data, _callback) => {
     try {
       const response = await fetch(
-        "https://gpkgtogeojson-backend.fly.dev/gpkg",
+        //"http://127.0.0.1:8000/gpkg", // local
+        "https://gpkgtogeojson-backend.fly.dev/gpkg", // prod
         {
           method: "POST",
           headers: {

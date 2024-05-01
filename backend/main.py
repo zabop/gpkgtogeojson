@@ -14,6 +14,7 @@ origins = [
     "https://www.gpkgtogeojson.com/gpkg",
     "https://gpkgtogeojson.com/gpkg",
     "https://gpkgtogeojson-frontend.fly.dev",
+    # "http://localhost:5173" # local dev
 ]
 
 app.add_middleware(

@@ -13,6 +13,7 @@
   transition: border-color 0.25s;
   white-space: nowrap;
   background-color: #3498db;
+  opacity: 0.9;
   color: #fff;
 }
 
@@ -53,22 +54,11 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-image: url('https://source.unsplash.com/1600x900/?nature');
+  background-size: cover;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }

@@ -4,3 +4,4 @@ uvicorn
 numpy
 geopandas
 pyogrio
+boto3

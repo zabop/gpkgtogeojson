@@ -82,10 +82,10 @@ const App = () => {
       />
       <div className="footer">
         <p>
-          You can upload a GPKG file and get back back a GeoJSON file. (If you
-          upload a large file, it might take a while.)
+          Upload a GPKG file, get back back a GeoJSON file. (If you upload a
+          large file, it might take a while.)
         </p>
-        <p>Suggestions, problems? gpkgtogeojson@protonmail.com</p>
+        <p>Suggestions, problems, questions? gpkgtogeojson@protonmail.com</p>
       </div>
     </div>
   );

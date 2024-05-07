@@ -2,7 +2,7 @@
   padding: 40px 150px; /* Increase padding for a larger button */
   font-size: 6rem; /* Increase font size for better readability */
   position: absolute;
-  top: 35%;
+  top: 37.5%;
   left: 50%;
   transform: translate(-50%, -50%); 
   border-radius: 80px;
@@ -29,12 +29,13 @@
 
 .footer {
   position: absolute;
-  top: 55%;
+  top: 60%;
+  bottom: 0%;
   background-color: #3498db;
   width: 100%;
   font-size: 2rem;
   text-align: center;
-  color: white
+  color: white;
 }
 
 :root {

@@ -23,3 +23,7 @@ jobs:
         - name: 'Docker auth'
           run: |-
             gcloud auth configure-docker europe-north1-docker.pkg.dev
+        - name: 'Build and push container'
+          run: |-
+            ls
+            pwd

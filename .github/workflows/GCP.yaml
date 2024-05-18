@@ -25,4 +25,4 @@ jobs:
             gcloud auth configure-docker europe-north1-docker.pkg.dev
         - name: 'Build and push container'
           run: |-
-            gcloud builds submit usagecheck/Dockerfile --config=usagecheck/cloudbuild.yaml 
+            gcloud builds submit --config=usagecheck/cloudbuild.yaml usagecheck/

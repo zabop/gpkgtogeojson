@@ -1,5 +1,7 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_IMAGE}', '.' ]
+  args: [ 'build', '-t', 'europe-north1-docker.pkg.dev/fallbekken/gpkgtogeojson/gpkgtogeojson', '.' ]
 images:
-- '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_IMAGE}'
+- '$europe-north1-docker.pkg.dev/fallbekken/gpkgtogeojson/gpkgtogeojson'
+options:
+  logging: CLOUD_LOGGING_ONLY

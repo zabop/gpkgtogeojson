@@ -25,5 +25,4 @@ jobs:
             gcloud auth configure-docker europe-north1-docker.pkg.dev
         - name: 'Build and push container'
           run: |-
-            gcloud config list account --format "value(core.account)"
-            gcloud builds submit --config=usagecheck/cloudbuild.yaml --substitutions=_LOCATION="europe-north1",_REPOSITORY="gpkgtogeojson",_IMAGE="gpkgtogeojson" usagecheck/Dockerfile
+            gcloud builds submit --tag "europe-north1-docker.pkg.dev/fallbekken/gpkgtogeojson/gpkgtogeojson" usagecheck/

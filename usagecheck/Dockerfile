@@ -14,6 +14,12 @@ RUN apt-get update && \
     jq \
     && rm -rf /var/lib/apt/lists/*
 
+RUN git clone --depth 1 --branch 2.24.0 https://github.com/felt/tippecanoe.git \
+    && cd tippecanoe \
+    && make -j \
+    && make install \
+    && cd ..
+
 COPY requirements.txt .
 COPY src/* .
 
@@ -21,4 +27,4 @@ RUN python3 -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 RUN pip3 install -r requirements.txt
 
-CMD ["python3", "main.py"]
+CMD ["bash", "main.sh"]

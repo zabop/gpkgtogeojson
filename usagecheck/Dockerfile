@@ -22,7 +22,7 @@ RUN git clone --depth 1 https://github.com/felt/tippecanoe.git \
     && cd ..
 
 COPY requirements.txt .
-COPY src/* .
+COPY src/* ./
 
 RUN python3 -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"

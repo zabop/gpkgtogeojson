@@ -26,3 +26,6 @@ jobs:
         - name: 'Build and push container'
           run: |-
             gcloud builds submit --config=usagecheck/cloudbuild.yaml usagecheck/
+        - name: 'cloudbuild cleanup'
+          run: |-
+            gcloud storage rm --recursive gs://fallbekken_cloudbuild/source/ 

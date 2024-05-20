@@ -15,7 +15,7 @@ RUN apt-get update && \
     jq \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone --depth 1 --branch 2.24.0 https://github.com/felt/tippecanoe.git \
+RUN git clone --depth 1 https://github.com/felt/tippecanoe.git \
     && cd tippecanoe \
     && make -j \
     && make install \

@@ -14,7 +14,7 @@ client = session.client(
 
 keys = [e["Key"] for e in client.list_objects_v2(Bucket="gpkgtogeojson")["Contents"]]
 
-for i, key in enumerate(keys):
+for i, key in enumerate(keys[-3:]):
     print(key)
     try:
         dst = key.split("/")[-1]

@@ -6,4 +6,4 @@ set -o pipefail
 
 python3 main.py
 tippecanoe -o dst.mbtiles -zg layersUnited*.geojson
-gcloud storage cp dst.mbtiles gs://gpkgviz/dst.mbtiles
+python3 uploadres.py

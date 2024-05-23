@@ -3,5 +3,6 @@ fastapi-cors
 uvicorn
 numpy
 geopandas
+pandas
 pyogrio
 boto3

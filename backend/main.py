@@ -3,6 +3,8 @@ import boto3
 import base64
 import random
 import string
+import pyogrio
+import pandas as pd
 import geopandas as gpd
 from fastapi import FastAPI
 from fastapi_cors import CORS
@@ -27,7 +29,7 @@ origins = [
     "https://www.gpkgtogeojson.com/gpkg",
     "https://gpkgtogeojson.com/gpkg",
     "https://gpkgtogeojson-frontend.fly.dev",
-    # "http://localhost:5173" # local dev
+    #"*" # local dev
 ]
 
 app.add_middleware(
@@ -55,7 +57,13 @@ async def create_item(gpkg: GPKG):
         "uploaded_files",
         f"src_{''.join(random.choice(string.ascii_lowercase) for _ in range(10))}_{int(time.time()*1000)}.gpkg",
     )
-    gpd.read_file("src.gpkg").to_file("dst.geojson", driver="GeoJSON", engine="pyogrio")
+
+    layernames = [
+        layername for layername, _ in pyogrio.list_layers("src.gpkg")
+    ]
+    dfs = [gpd.read_file("src.gpkg", layer=layername) for layername in layernames]
+    united=gpd.GeoDataFrame(pd.concat([df.to_crs(4326) for df in dfs]))
+    united.to_file("dst.geojson", driver="GeoJSON", engine="pyogrio")
 
     return FileResponse("dst.geojson")
 

@@ -1,0 +1,4 @@
+geopandas
+pyogrio
+pandas
+boto3

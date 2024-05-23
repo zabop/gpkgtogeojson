@@ -25,7 +25,7 @@ for i, key in enumerate(keys):
         ]
 
         print(f"layernames: {layernames}")
-        dfs = [gpd.read_file(dst, layername=layername) for layername in layernames]
+        dfs = [gpd.read_file(dst, layer=layername) for layername in layernames]
         united=gpd.GeoDataFrame(pd.concat([df.to_crs(4326) for df in dfs]))
         united.to_file(f"layersUnited{i}.geojson",engine="pyogrio",layer_options={"COORDINATE_PRECISION": 8})
     except Exception as e:

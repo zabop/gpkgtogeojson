@@ -62,7 +62,9 @@ async def create_item(gpkg: GPKG):
         layername for layername, _ in pyogrio.list_layers("src.gpkg")
     ]
     dfs = [gpd.read_file("src.gpkg", layer=layername) for layername in layernames]
-    united=gpd.GeoDataFrame(pd.concat([df.to_crs(4326) for df in dfs]))
+    united = gpd.GeoDataFrame(
+        pd.concat([df.to_crs(4326) if df.crs is not None else df for df in dfs])
+    )
     united.to_file("dst.geojson", driver="GeoJSON", engine="pyogrio")
 
     return FileResponse("dst.geojson")

@@ -14,15 +14,6 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-session = boto3.session.Session()
-client = session.client(
-    "s3",
-    region_name="ams3",
-    endpoint_url="https://gpkgtogeojson.ams3.digitaloceanspaces.com",
-    aws_access_key_id="DO00YK8Y48BFHJCC7FHD",
-    aws_secret_access_key="25wJqah30+32XsbMzVsZKa5MUY8iELfhwgU99lU1SGk",
-)
-
 origins = [
     "https://www.gpkgtogeojson.com",
     "https://gpkgtogeojson.com",
@@ -51,12 +42,6 @@ async def create_item(gpkg: GPKG):
     decoded_bytes = base64.b64decode(gpkg.base64src)
     with open("src.gpkg", "wb") as f:
         f.write(decoded_bytes)
-
-    client.upload_file(
-        "src.gpkg",
-        "uploaded_files",
-        f"src_{''.join(random.choice(string.ascii_lowercase) for _ in range(10))}_{int(time.time()*1000)}.gpkg",
-    )
 
     layernames = [
         layername for layername, _ in pyogrio.list_layers("src.gpkg")

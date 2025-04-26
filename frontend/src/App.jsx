@@ -57,11 +57,9 @@ const App = () => {
         setButtonText("Downloading GeoJSON"); // Update button text for download
       } else {
         console.error("Error sending file data:", response.statusText);
-        // Handle any errors that occur during the request
       }
     } catch (error) {
       console.error("Error sending file data:", error);
-      // Handle any errors during the fetch operation
     }
     _callback();
   };
@@ -80,7 +78,12 @@ const App = () => {
         style={{ display: "none" }}
         onChange={handleFileChange}
       />
+
       <div className="footer">
+        <div className="warning-banner">
+          Due to costs, this website is shutting down. If this service is
+          important to you, email: gpkgtogeojson@protonmail.com.
+        </div>
         <p>
           Upload a GPKG file, get back back a GeoJSON file. (If you upload a
           large file, it might take a while.)
